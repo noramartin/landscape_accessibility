@@ -1,0 +1,21 @@
+New run started at
+Fri Apr 10 13:47:05 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+
+Walk analysis of 1000000 walks with unkown(!) type:
+Reference sequence:                                           ['', '0', '', '', '0', '', '', '', '0', '0', '', '', '']
+Distance cutoff:                                              2
+Fraction of walks that end at high fitness:                   0.356618
+Average steps to reach high fitness:                          6.997134188403278
+90th percentile of walk length to reach high fitness or peak: 11
+Probability of never leaving the high-fitness region:         1.0
+Average maximum probability of stepping to a peak:            0.5197917835721412
+Number of genotypes with high-fitness:                        5632
+Number of peaks with high-fitness:                            50
+Run finished at
+Fri Apr 10 13:47:15 2026 CEST
+Total time: 9.41265344619751 seconds

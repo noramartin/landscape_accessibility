@@ -12,7 +12,7 @@
 #   SciPy 1.17
 
 # Written by Kye Hunter
-# Last updated 20260219
+# Last updated 20260413
 
 set -o errexit -o errtrace -o pipefail
 

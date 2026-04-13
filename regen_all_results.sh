@@ -10,6 +10,7 @@
 # Recommended versions of dependencies: 
 #   Python 3.14
 #   SciPy 1.17
+#   NetworkX 3.6 (only required for rmf_plots.py)
 
 # Written by Kye Hunter
 # Last updated 20260413

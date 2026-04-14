@@ -1,8 +1,8 @@
 #! /usr/bin/env python
 
-#     figS5_gen.py
+#     figS4_gen.py
 
-# Generates Figure S5 for the paper
+# Generates Figure S4 for the paper
 
 # Written by Kye Hunter
 # Last updated 20260410
@@ -49,7 +49,7 @@ def plot_row(row, axes, **keyword_args):
     input_file = keyword_args.pop('input_file')
     input_base = '.'.join(input_file.split('.')[:-1])
     basins_file = input_base + '_basins.tsv'
-    log_file = input_base + '_log_figS5.txt'
+    log_file = input_base + '_log_figS4.txt'
     walks_file = input_base + '_walks.json'
     keyword_args.setdefault(
         'graph_type', f'point_mutations,{input_file}'
@@ -64,8 +64,6 @@ def plot_row(row, axes, **keyword_args):
         graph, 'HoC'
     )
     
-    graph.walk_analyzer.peak_cutoff = 0.6
-
     # Column 1:
     graph.open_log(filename = log_file)
     graph.calc_peaks(check_plateaus = True)
@@ -200,9 +198,6 @@ def plot_row(row, axes, **keyword_args):
     if os.path.isfile(walks_file):
         walk_data = json.load(open(walks_file, 'r'))
         # This line is mainly just to make sure the stats are logged every time
-        walk_data[1]['walk'] = graph.walk_analyzer.relog(
-            walk_data[1]['walk'], trans_only_low_fit = True
-        )
         walk_data[1] |= graph.walk_analyzer.analyze_walks(walk_data[1]['walk'])
     else:
         walk_data = graph.random_walkers(
@@ -251,6 +246,12 @@ def plot_row(row, axes, **keyword_args):
         weight = 'bold', size = 'large'
     )
 
+    filtered_steps2 = [
+        stat if stat != -1 else (len(walk[1]) - 1)
+        for walk, stat 
+        in zip(walk_data[1]['walk'], walk_data[1]['steps_to_high_fitness'])
+    ]
+
     filtered_geom_means = [
         val for val in walk_data[1]['geom_mean_trans_prob'] if val != -1
     ]
@@ -263,17 +264,36 @@ def plot_row(row, axes, **keyword_args):
         color = ['black'], linestyle = '--', 
         label = '$P_{pt,rep}$, as in eq. 10'
     )
-    least_simple_lower_bound = sum( #mean_stays_high_fitness * sum(
-        good_walk_lengths.count(length) / len(good_walk_lengths) 
-        * arith_walk_geom_step_mean_prob ** length 
+    walk_length_dist = [
+        good_walk_lengths.count(length) / len(good_walk_lengths)
         for length in range(max(good_walk_lengths) + 1)
+    ]
+    least_simple_lower_bound = sum( 
+        prob_len * arith_walk_geom_step_mean_prob ** length 
+        for length, prob_len in enumerate(walk_length_dist)
     )
+
+    walk_peak_trans_prob_by_length = [[
+        1 - geom_mean for geom_mean, length2 in zip(
+            walk_data[1]['geom_mean_trans_prob'], filtered_steps2
+        ) if geom_mean != -1 and length2 == length
+    ] for length in range(1, max_length)]
+    mean_geom_means_by_length = [
+        sum(val) / len(val) for val in walk_peak_trans_prob_by_length
+    ]
+    very_accurate_estimate = sum(
+        prob_len * (1 - len_mean_geom_mean) ** length 
+        for (length, prob_len), len_mean_geom_mean 
+        in zip(enumerate(walk_length_dist), mean_geom_means_by_length)
+    )
+
     graph.write_log(
         'Arithmetic mean by walk of geometric mean by step of (1- transition'
             f' probability) (p_rep): {arith_walk_geom_step_mean_prob}\n'
         f'Total walk lengths used: {len(good_walk_lengths)}\n'
-        f'P(l): {[good_walk_lengths.count(length) / len(good_walk_lengths) for length in range(max(good_walk_lengths) + 1)]}\n'
+        f'P(l): {walk_length_dist}\n'
         f'sum(P(l) * (p_rep) ** l): {least_simple_lower_bound}\n'
+        f'sum(P(l) * (p_rep_l) ** l): {very_accurate_estimate}\n'
     )
 
     # Take some averages over steps:
@@ -299,9 +319,9 @@ def plot_row(row, axes, **keyword_args):
         'Probability of a step going from low fitness to a low-fitness peak:'
             f' {low_fit_to_low_peak}\n'
         'Probability of a step going from low fitness to high fitness:'
-            f'{low_fit_to_high_fit}\n'
+            f' {low_fit_to_high_fit}\n'
         'Ratio of going to high  fitness / going to low-fitness peak:'
-            f' {low_fit_to_high_fit / low_fit_to_low_peak}\n'
+            f'{low_fit_to_high_fit / low_fit_to_low_peak}\n'
     )
 
     graph.close_log()
@@ -314,7 +334,7 @@ def plot_row(row, axes, **keyword_args):
         # Make the permuted landscape and run the walks just to get one number
         rugged_maps.random.seed(rugged_maps.the_seed)
         permuted_input_base = input_base + '_permuted'
-        permuted_log_file = permuted_input_base + '_log_figS5.txt'
+        permuted_log_file = permuted_input_base + '_log_figS4.txt'
         permuted_walks_file = permuted_input_base + '_walks.json'
         permuted_graph_args = graph_args | {'permute' : 'after_cutoff'}
         permuted_graph = rugged_maps.make_graph(**permuted_graph_args)[0]
@@ -330,9 +350,6 @@ def plot_row(row, axes, **keyword_args):
         )
         if os.path.isfile(permuted_walks_file):
             permuted_walk_data = json.load(open(permuted_walks_file, 'r'))
-            permuted_walk_data[1]['walk'] = permuted_graph.walk_analyzer.relog(
-                permuted_walk_data[1]['walk'], trans_only_low_fit = True
-           )
             permuted_walk_data[1] |= permuted_graph.walk_analyzer.analyze_walks(
                 permuted_walk_data[1]['walk']
             )
@@ -350,19 +367,21 @@ def plot_row(row, axes, **keyword_args):
     key = f'{alphabet[row]}4'
     axis = axes[key]
     axis.bar(
-        ['1', '2', '3', '4'],
+        ['1', '2', '3', '4', '5'],
         [
             100 * low_fit_high_fit_peak_rank, 
             100 * len(good_walk_lengths) 
             / (len(good_walk_lengths) + len(bad_walk_lengths)),
             100 * least_simple_lower_bound,
+            100 * very_accurate_estimate,
             100 * permuted_result
         ], 
-        color = ['blue', 'red', 'lightcoral', 'gray'],
+        color = ['blue', 'red', 'lightcoral', 'green', 'gray'],
         label = [
             'Fraction of high-fitness peaks', 
             'Fraction of walkers reaching\nhigh-fitness peaks (simulation)', 
             'Fraction of walkers reaching\nhigh-fitness peaks (estimated\nfrom eq. 10)',
+            'sum$(P(l)(1-P_{pt,l})^l)$',
             'Fraction of walkers reaching\nhigh-fitness peaks (permuted\nlandscape, simulation)'
         ], 
     )
@@ -377,8 +396,22 @@ def plot_row(row, axes, **keyword_args):
 
 def main():
     args_array = [
+        {
+            'input_file' : 'sRMF_15_0.01.not_real', 
+            'graph_type' : f'hamming,{L},2', 
+            'fitness_distribution' : f'noras_rmf,1,0,1.5,{1-p},{p}'
+        },
+        {'input_file' : 'papkou_2023_folA.csv'},
+        {
+            'input_file' : 'papkou_2023_folA_cutoff.not_real', 
+            'graph_type' : 'point_mutations,papkou_2023_folA.csv', 
+            'fitness_cutoff' : -0.508, 'cutoff_type' : 'low_fitness_neighbors'
+        },
+        {'input_file' : 'wu_2016_1.csv'},
+        {'input_file' : 'kuo_2020_SD_FL_arti.csv'},
         {'input_file' : 'poelwijk_2019_FP.tsv'},
         {'input_file' : 'domingo_2018.tsv'},
+        {'input_file' : 'moulana_2022_RBD_ACE2.tsv'},
     ]
     args_array = [val | {
         'evolution_type' : f'walkers,{num_walks}',
@@ -425,7 +458,7 @@ def main():
     )
     fig_axes['l4'].set_axis_off()
     
-    fig.savefig(f'figS5.pdf')
+    fig.savefig(f'figS4.pdf')
     #matplotlib.pyplot.show()
     matplotlib.pyplot.close()
 

@@ -1,44 +1,43 @@
 New run started at
-Fri Apr 10 16:27:16 2026 CEST
+Fri Apr 10 12:37:55 2026 CEST
 Random seed this run: 3034128489
 
 Found 0 plateaus:
 
 
 Genotypes: 4176
-Low-fitness genotypes: 4158
-High-fitness genotypes: 18
-Fraction high-fitness genotypes: 0.004310344827586207
-Rank of lowest-fitness high-fitness genotype: 0.004310344827586188
+Low-fitness genotypes: 3956
+High-fitness genotypes: 220
+Fraction high-fitness genotypes: 0.05268199233716475
+Rank of lowest-fitness high-fitness genotype: 0.05268199233716475
 Peaks: 86
-Low-fitness peaks: 74
-High-fitness peaks: 12
-Fraction high-fitness peaks: 0.13953488372093023
-Rank of lowest-fitness high-fitness peak: 0.13953488372093026
+Low-fitness peaks: 35
+High-fitness peaks: 51
+Fraction high-fitness peaks: 0.5930232558139535
+Rank of lowest-fitness high-fitness peak: 0.5930232558139534
 
 Walk analysis of 1000000 walks with unkown(!) type:
-Target peak fraction:                                         0.14
-Fitness cutoff:                                               0.0112070030298252
-Fraction of walks that end at high fitness:                   0.347253
-Average steps to reach high fitness:                          5.815906558042695
-50th percentile of walk length to reach high fitness: 6
-50th percentile of walk length to reach low-fitness peak: 4
-90th percentile of walk length to reach high fitness or peak: 8
+Target peak fraction:                                         0.6
+Fitness cutoff:                                               -0.0166056216518796
+Fraction of walks that end at high fitness:                   0.923821
+Average steps to reach high fitness:                          3.5564292216782256
+50th percentile of walk length to reach high fitness: 3
+50th percentile of walk length to reach low-fitness peak: 2
+90th percentile of walk length to reach high fitness or peak: 6
 Probability of never leaving the high-fitness region:         1.0
-Average maximum probability of stepping to a peak:            0.5023451037376139
-Average geometric mean of probability of stepping to a peak:  0.6375569358771567
-Number of genotypes with high-fitness:                        18
-Number of peaks with high-fitness:                            12
-Average peak transition probability in low-fitness region: 0.05070376489328497
-Average maximum peak transition probability see in each walk: 0.5023451037376139
-Arithmetic mean by walk of geometric mean by step of (1- transition probability) (p_rep): 0.6375569358771567
-Total walk lengths used: 347253
-P(l): [0.012564326298116935, 0.03558212600035133, 0.062283119224311956, 0.09296967916763858, 0.12291614471293265, 0.14398723697131485, 0.14511033741969112, 0.1268210785795947, 0.0968371763526881, 0.06863583611948637, 0.04362237331282955, 0.02464485548001025, 0.01297325005111547, 0.006197210679245392, 0.0029949345290033492, 0.0011864548326436344, 0.0004319617109139446, 0.00016414545014729895, 5.183540530967335e-05, 2.015821317598408e-05, 5.759489478852594e-06]
-sum(P(l) * (p_rep) ** l): 0.13989285789164568
-sum(P(l) * (p_rep_l) ** l): 0.15716539147436392
-Probability of a step going from low fitness to a low-fitness peak: 0.12912127453858396
-Probability of a step going from low fitness to high fitness: 0.06970742762535709
-Ratio of going to high  fitness / going to low-fitness peak: 0.5398601266480463
+Average maximum probability of stepping to a peak:            0.0630863555958247
+Average geometric mean of probability of stepping to a peak:  0.9674466920132144
+Number of genotypes with high-fitness:                        220
+Number of peaks with high-fitness:                            51
+Average peak transition probability in low-fitness region: 0.01719187115132027
+Average maximum peak transition probability see in each walk: 0.0630863555958247
+Arithmetic mean by walk of geometric mean by step of (1- transition probability) (p_rep): 0.9674466920132144
+Total walk lengths used: 923821
+P(l): [0.057122537807648886, 0.11831729306867889, 0.17162848647086396, 0.18501311401234655, 0.16368105942601435, 0.12377614278090669, 0.08283855855192726, 0.049138307096288136, 0.026312456633915012, 0.012686440338550433, 0.005765186112894165, 0.0024052278525818313, 0.000878958153148716, 0.00029442933208922507, 9.200916627788284e-05, 3.788612729089293e-05, 9.742147017658182e-06, 2.164921559479596e-06]
+sum(P(l) * (p_rep) ** l): 0.8912255998579681
+Probability of a step going from low fitness to a low-fitness peak: 0.019388725469867422
+Probability of a step going from low fitness to high fitness: 0.24912304284470171
+Ratio of going to high  fitness / going to low-fitness peak: 12.848861222563135
 Run finished at
-Fri Apr 10 16:27:34 2026 CEST
-Total time: 18.121636629104614 seconds
+Fri Apr 10 12:38:14 2026 CEST
+Total time: 18.834853410720825 seconds

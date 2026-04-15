@@ -1,5 +1,5 @@
 New run started at
-Fri Apr 10 12:37:55 2026 CEST
+Wed Apr 15 17:20:36 2026 CEST
 Random seed this run: 3034128489
 
 Found 0 plateaus:
@@ -36,8 +36,8 @@ Total walk lengths used: 923821
 P(l): [0.057122537807648886, 0.11831729306867889, 0.17162848647086396, 0.18501311401234655, 0.16368105942601435, 0.12377614278090669, 0.08283855855192726, 0.049138307096288136, 0.026312456633915012, 0.012686440338550433, 0.005765186112894165, 0.0024052278525818313, 0.000878958153148716, 0.00029442933208922507, 9.200916627788284e-05, 3.788612729089293e-05, 9.742147017658182e-06, 2.164921559479596e-06]
 sum(P(l) * (p_rep) ** l): 0.8912255998579681
 Probability of a step going from low fitness to a low-fitness peak: 0.019388725469867422
-Probability of a step going from low fitness to high fitness: 0.24912304284470171
-Ratio of going to high  fitness / going to low-fitness peak: 12.848861222563135
+Probability of a step going from low fitness to high fitness:0.24912304284470171
+Ratio of going to high fitness / going to low-fitness peak: 12.848861222563135
 Run finished at
-Fri Apr 10 12:38:14 2026 CEST
-Total time: 18.834853410720825 seconds
+Wed Apr 15 17:20:55 2026 CEST
+Total time: 19.083768606185913 seconds

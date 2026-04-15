@@ -5,7 +5,7 @@
 # Generates Figure 4 for the paper
 
 # Written by Kye Hunter
-# Last updated 20260402
+# Last updated 20260415
 
 import math, os, json
 import matplotlib.pyplot, matplotlib.font_manager, matplotlib.ticker
@@ -88,6 +88,16 @@ def plot_row(row, axes, **keyword_args):
         graph[inode].fitness for inode in graph.peaks 
         if graph.walk_analyzer.check_high_fitness(inode)
     ]
+    low_fitness_nonpeaks = [
+        node.fitness for inode, node in enumerate(graph) 
+        if not graph.walk_analyzer.check_high_fitness(inode) 
+        and not node.is_peak
+    ]
+    high_fitness_nonpeaks = [ 
+        node.fitness for inode, node in enumerate(graph) 
+        if graph.walk_analyzer.check_high_fitness(inode)
+        and not node.is_peak
+    ]
     
 
     if input_base == 'sRMF_15_0.01':
@@ -97,20 +107,17 @@ def plot_row(row, axes, **keyword_args):
 
     key = f'{alphabet[row]}1'
     axis = axes[key]
-    # "fake" stacked histogram of non-peaks with peaks and low-fitness region 
-    # with high-fitness region: since the peaks never exceed the genotypes, just
-    # plot the peaks in front
-    _, the_bins, _ = axis.hist(
-        [low_fitness_genotypes, high_fitness_genotypes],
-        bins = bins, color = ['peru', 'red'], 
-        histtype = 'bar', stacked = True, 
-        label = ['Low-fitness non-peaks', 'High-fitness non-peaks']
-    )
     axis.hist(
-        [low_fitness_peaks, high_fitness_peaks],
-        bins = the_bins, color = ['cyan', 'blue'], 
+        [
+            low_fitness_peaks, high_fitness_peaks, 
+            low_fitness_nonpeaks, high_fitness_nonpeaks
+        ],
+        bins = bins, color = ['cyan', 'blue', 'peru', 'red'], 
         histtype = 'bar', stacked = True, 
-        label = ['Low-fitness peaks', 'High-fitness peaks']
+        label = [
+            'Low-fitness peaks', 'High-fitness peaks', 
+            'Low-fitness non-peaks', 'High-fitness non-peaks'
+        ]
     )
     axis.set_xlabel('Fitness')
     axis.set_ylabel('Counts')

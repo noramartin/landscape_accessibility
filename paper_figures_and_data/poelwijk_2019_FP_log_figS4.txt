@@ -1,5 +1,5 @@
 New run started at
-Fri Apr 10 16:26:42 2026 CEST
+Wed Apr 15 17:17:53 2026 CEST
 Random seed this run: 3034128489
 
 Found 0 plateaus:
@@ -38,7 +38,7 @@ sum(P(l) * (p_rep) ** l): 0.10101908873854519
 sum(P(l) * (p_rep_l) ** l): 0.09880440668118469
 Probability of a step going from low fitness to a low-fitness peak: 0.09825727171067232
 Probability of a step going from low fitness to high fitness: 0.05494580321154003
-Ratio of going to high  fitness / going to low-fitness peak: 0.5592034284580286
+Ratio of going to high fitness / going to low-fitness peak: 0.5592034284580286
 Run finished at
-Fri Apr 10 16:27:05 2026 CEST
-Total time: 22.677966594696045 seconds
+Wed Apr 15 17:18:15 2026 CEST
+Total time: 22.78014349937439 seconds

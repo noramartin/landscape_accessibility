@@ -1,5 +1,5 @@
 New run started at
-Fri Apr 10 13:45:19 2026 CEST
+Thu Apr 16 12:06:13 2026 CEST
 Random seed this run: 3034128489
 
 Found 32 plateaus:
@@ -39,15 +39,18 @@ Escapable: True, Size: 2
 
 
 Walk analysis of 1000000 walks with unkown(!) type:
-Reference sequence:                                           ['AG', 'GA', 'AG', 'GA', 'GA', 'GA', 'GA', 'GA', 'GU']
-Distance cutoff:                                              6
+Target peak fraction:                                         0.14
+Fitness cutoff:                                               2.723
 Fraction of walks that end at high fitness:                   0.781032
 Average steps to reach high fitness:                          8.235757305718588
+50th percentile of walk length to reach high fitness: 8
+50th percentile of walk length to reach low-fitness peak: 7
 90th percentile of walk length to reach high fitness or peak: 13
 Probability of never leaving the high-fitness region:         1.0
-Average maximum probability of stepping to a peak:            0.17361953480703185
-Number of genotypes with high-fitness:                        65514
-Number of peaks with high-fitness:                            253
+Average maximum probability of stepping to a peak:            0.17000827515412573
+Average geometric mean of probability of stepping to a peak:  0.9084196111754527
+Number of genotypes with high-fitness:                        535
+Number of peaks with high-fitness:                            182
 Run finished at
-Fri Apr 10 13:46:01 2026 CEST
-Total time: 41.95178723335266 seconds
+Thu Apr 16 12:06:57 2026 CEST
+Total time: 44.40719819068909 seconds

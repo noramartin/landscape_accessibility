@@ -5,7 +5,7 @@
 # Generates Figure 5 for the paper
 
 # Written by Kye Hunter
-# Last updated 20260402
+# Last updated 20260416
 
 import math, os, json
 import matplotlib.pyplot, matplotlib.font_manager
@@ -59,6 +59,9 @@ def plot_row(row, axes, **keyword_args):
     graph_args.pop('evolution_type')
     rugged_maps.random.seed(rugged_maps.the_seed)
     graph = rugged_maps.make_graph(**graph_args)[0]
+    graph.walk_analyzer = rugged_maps.walk_analysis.WalkAnalyzer(
+        graph, 'HoC'
+    )
     
     key1 = f'{alphabet[row]}1'
     axis1 = axes[key1]
@@ -97,6 +100,11 @@ def plot_row(row, axes, **keyword_args):
     # Column 1:
     graph.open_log(filename = log_file)
     graph.calc_peaks(check_plateaus = True)
+    if 'permute' in keyword_args.keys() or isinstance(
+        graph.walk_analyzer, rugged_maps.walk_analysis.HoCAnalyzer
+    ):
+        graph.walk_analyzer.reinit(auto = False)
+
     graph.calc_transition_matrix(
         evolution_type = 'random', check_plateaus = True
     )
@@ -129,7 +137,9 @@ def plot_row(row, axes, **keyword_args):
         walk_data = json.load(open(walks_file, 'r'))
         walk_data[1] |= graph.walk_analyzer.analyze_walks(walk_data[1]['walk'])
     else:
-        walk_data = graph.random_walkers(num_walkers = num_walks)
+        walk_data = graph.random_walkers(
+            num_walkers = num_walks, trans_only_low_fit = True
+        )
         json.dump(walk_data, open(walks_file, 'w'))
     graph.close_log()
     

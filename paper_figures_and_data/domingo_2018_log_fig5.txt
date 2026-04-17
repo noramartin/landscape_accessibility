@@ -1,5 +1,5 @@
 New run started at
-Thu Apr 16 12:08:19 2026 CEST
+Fri Apr 17 17:13:53 2026 CEST
 Random seed this run: 3034128489
 
 Found 0 plateaus:
@@ -20,5 +20,5 @@ Average geometric mean of probability of stepping to a peak:  0.6375569358771567
 Number of genotypes with high-fitness:                        18
 Number of peaks with high-fitness:                            12
 Run finished at
-Thu Apr 16 12:08:28 2026 CEST
-Total time: 9.388862371444702 seconds
+Fri Apr 17 17:14:02 2026 CEST
+Total time: 9.070283651351929 seconds

@@ -14,7 +14,7 @@ Directory structure:
 └── paper_figures_and_data # Figures, logs, logged walks, and basins for each landscape
     └── plots              # Figures 1A, 1C, 2, 3, S1, S2
 
-In principal, all data and figures are reproducilbe with the script `regen_all_results.sh`, however this may take a long time, and it may be better to run the analysis scripts one at a time.
+In principle, all data and figures are reproducilbe with the script `regen_all_results.sh`, however this may take a long time, and it may be better to run the analysis scripts one at a time.
 
 Logs of the random walks and basins for each landscape studied are provided in JSON and TSV format respectively, but must first be decompressed with the `xz` program. 
 

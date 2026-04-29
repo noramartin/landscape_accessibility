@@ -1,7 +1,7 @@
 
 Data from:
-"Siliang Song, Jianzhi Zhang, Unbiased inference of the fitness landscape ruggedness from imprecise fitness estimates, Evolution, Volume 75, Issue 11, 1 November 2021, Pages 2658–2671," 
-https://doi.org/10.1111/evo.14363"
+"Syue-Ting Kuo, Ruey-Lin Jahn, Yuan-Ju Cheng, Yi-Lan Chen, Yun-Ju Lee, Florian Hollfelder, Jin-Der Wen, and Hsin-Hung David Chou. 2020, Global fitness landscapes of the Shine-Dalgarno sequence. Cold Spring Harbor Laboratory Press."
+https://genome.cshlp.org/content/30/5/711
 
 The data can be found at: 
 https://genome.cshlp.org/content/30/5/711/suppl/DC1 , or
@@ -12,4 +12,5 @@ The data in `Supplemental_File_S2.csv`, `Supplemental_File_S3.csv`, `Supplementa
 while `kuo_2020_SD_FL_arti.csv`, `kuo_2020_SD_FL_arti_Y.csv`, `kuo_2020_SD_FL_dmsC.csv`, and `kuo_2020_SD_FL_fepB.csv` have been editted to use LF instead of CR line breaks, and only contain the genotypes and mean fitness values, without the individual replicates.
 
 The sequences (first column) are 9 nucleotides of mRNA in the 30-nucleotide ribosome-binding sites from the E. coli genes fepB and dmsC, and an artificial sequence. The binding strength of the ribosome-binding sites to the 30S ribosomal subunit is measured indirectly through the fluoresence intensity resulting from translation of the downstream GFP; the fitness values (second column) are the mean of the logarithm of the fluoresence intensity in 3 replicates. The file `kuo_2020_SD_FL_arti_Y.csv` used yellow fluoresent protein as the reporter instead of GFP, with only a single replicate. 
+Here, following Song 2021 (https://doi.org/10.1111/evo.14363), only the data from `kuo_2020_SD_FL_arti.csv` is analyzed for the figures, etc.
 

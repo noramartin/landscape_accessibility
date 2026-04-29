@@ -19,7 +19,7 @@ set -o errexit -o errtrace -o pipefail
 
 if [[
   $(python --version | cut -d' ' -f 2 | cut -d'.' -f 1) -ne 3
-  && $(python --version | cut -d' ' -f 2 | cut -d'.' -f 2) -lt 12
+  || $(python --version | cut -d' ' -f 2 | cut -d'.' -f 2) -lt 12
 ]] then
   echo "You need to use a version of Python 3 >= v3.12"
   exit 1

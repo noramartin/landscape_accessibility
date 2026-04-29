@@ -18,5 +18,5 @@ In principle, all data and figures are reproducilbe with the script `regen_all_r
 
 Logs of the random walks and basins for each landscape studied are provided in JSON and TSV format respectively, but must first be decompressed with the `xz` program. 
 
-All code and data in this repository are licensed CC-BY, except where other licenses apply.
+All code and data in this repository are licensed CC-BY 4.0, except where other licenses apply.
 

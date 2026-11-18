@@ -1,0 +1,643 @@
+Landscape of replicates 0
+New run started at
+Wed Nov 18 15:48:00 2026 CEST
+Random seed this run: 3034128489
+
+Found 6 plateaus:
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+Escapable: False, Size: 2
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+
+
+Number of peaks: 303
+Landscape of replicates 1
+New run started at
+Wed Nov 18 15:48:06 2026 CEST
+Random seed this run: 3034128489
+
+Found 8 plateaus:
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+
+
+Number of peaks: 301
+Landscape of replicates 2
+New run started at
+Wed Nov 18 15:48:14 2026 CEST
+Random seed this run: 3034128489
+
+Found 5 plateaus:
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+
+
+Number of peaks: 300
+Landscape of replicates 3
+New run started at
+Wed Nov 18 15:48:21 2026 CEST
+Random seed this run: 3034128489
+
+Found 8 plateaus:
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+
+
+Number of peaks: 313
+Landscape of replicates 4
+New run started at
+Wed Nov 18 15:48:28 2026 CEST
+Random seed this run: 3034128489
+
+Found 10 plateaus:
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+
+
+Number of peaks: 262
+Landscape of replicates 5
+New run started at
+Wed Nov 18 15:48:35 2026 CEST
+Random seed this run: 3034128489
+
+Found 18 plateaus:
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+Escapable: True, Size: 2
+Escapable: True, Size: 2
+Escapable: False, Size: 2
+Escapable: True, Size: 2
+
+
+Number of peaks: 310
+Landscape of replicates 0_1
+New run started at
+Wed Nov 18 15:48:41 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 245
+Landscape of replicates 0_2
+New run started at
+Wed Nov 18 15:48:48 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 221
+Landscape of replicates 0_3
+New run started at
+Wed Nov 18 15:48:55 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 248
+Landscape of replicates 0_4
+New run started at
+Wed Nov 18 15:49:02 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 211
+Landscape of replicates 0_5
+New run started at
+Wed Nov 18 15:49:09 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 234
+Landscape of replicates 1_2
+New run started at
+Wed Nov 18 15:49:16 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 239
+Landscape of replicates 1_3
+New run started at
+Wed Nov 18 15:49:23 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 242
+Landscape of replicates 1_4
+New run started at
+Wed Nov 18 15:49:31 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 209
+Landscape of replicates 1_5
+New run started at
+Wed Nov 18 15:49:38 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 245
+Landscape of replicates 2_3
+New run started at
+Wed Nov 18 15:49:45 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 226
+Landscape of replicates 2_4
+New run started at
+Wed Nov 18 15:49:53 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 230
+Landscape of replicates 2_5
+New run started at
+Wed Nov 18 15:50:00 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 234
+Landscape of replicates 3_4
+New run started at
+Wed Nov 18 15:50:07 2026 CEST
+Random seed this run: 3034128489
+
+Found 1 plateaus:
+Escapable: True, Size: 2
+
+
+Number of peaks: 226
+Landscape of replicates 3_5
+New run started at
+Wed Nov 18 15:50:14 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 258
+Landscape of replicates 4_5
+New run started at
+Wed Nov 18 15:50:21 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 236
+Landscape of replicates 0_1_2
+New run started at
+Wed Nov 18 15:50:28 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 187
+Landscape of replicates 0_1_3
+New run started at
+Wed Nov 18 15:50:35 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 230
+Landscape of replicates 0_1_4
+New run started at
+Wed Nov 18 15:50:42 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 188
+Landscape of replicates 0_1_5
+New run started at
+Wed Nov 18 15:50:49 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 205
+Landscape of replicates 0_2_3
+New run started at
+Wed Nov 18 15:50:56 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 200
+Landscape of replicates 0_2_4
+New run started at
+Wed Nov 18 15:51:03 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 202
+Landscape of replicates 0_2_5
+New run started at
+Wed Nov 18 15:51:11 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 205
+Landscape of replicates 0_3_4
+New run started at
+Wed Nov 18 15:51:18 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 206
+Landscape of replicates 0_3_5
+New run started at
+Wed Nov 18 15:51:26 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 223
+Landscape of replicates 0_4_5
+New run started at
+Wed Nov 18 15:51:37 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 205
+Landscape of replicates 1_2_3
+New run started at
+Wed Nov 18 15:51:45 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 184
+Landscape of replicates 1_2_4
+New run started at
+Wed Nov 18 15:51:55 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 186
+Landscape of replicates 1_2_5
+New run started at
+Wed Nov 18 15:52:03 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 197
+Landscape of replicates 1_3_4
+New run started at
+Wed Nov 18 15:52:16 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 192
+Landscape of replicates 1_3_5
+New run started at
+Wed Nov 18 15:52:24 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 206
+Landscape of replicates 1_4_5
+New run started at
+Wed Nov 18 15:52:33 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 214
+Landscape of replicates 2_3_4
+New run started at
+Wed Nov 18 15:52:42 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 206
+Landscape of replicates 2_3_5
+New run started at
+Wed Nov 18 15:52:53 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 217
+Landscape of replicates 2_4_5
+New run started at
+Wed Nov 18 15:53:02 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 202
+Landscape of replicates 3_4_5
+New run started at
+Wed Nov 18 15:53:10 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 214
+Landscape of replicates 0_1_2_3
+New run started at
+Wed Nov 18 15:53:18 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 188
+Landscape of replicates 0_1_2_4
+New run started at
+Wed Nov 18 15:53:25 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 177
+Landscape of replicates 0_1_2_5
+New run started at
+Wed Nov 18 15:53:33 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 172
+Landscape of replicates 0_1_3_4
+New run started at
+Wed Nov 18 15:53:41 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 169
+Landscape of replicates 0_1_3_5
+New run started at
+Wed Nov 18 15:53:49 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 210
+Landscape of replicates 0_1_4_5
+New run started at
+Wed Nov 18 15:53:57 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 179
+Landscape of replicates 0_2_3_4
+New run started at
+Wed Nov 18 15:54:04 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 179
+Landscape of replicates 0_2_3_5
+New run started at
+Wed Nov 18 15:54:14 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 188
+Landscape of replicates 0_2_4_5
+New run started at
+Wed Nov 18 15:54:21 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 169
+Landscape of replicates 0_3_4_5
+New run started at
+Wed Nov 18 15:54:29 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 186
+Landscape of replicates 1_2_3_4
+New run started at
+Wed Nov 18 15:54:37 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 183
+Landscape of replicates 1_2_3_5
+New run started at
+Wed Nov 18 15:54:45 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 183
+Landscape of replicates 1_2_4_5
+New run started at
+Wed Nov 18 15:54:53 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 194
+Landscape of replicates 1_3_4_5
+New run started at
+Wed Nov 18 15:55:01 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 170
+Landscape of replicates 2_3_4_5
+New run started at
+Wed Nov 18 15:55:08 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 199
+Landscape of replicates 0_1_2_3_4
+New run started at
+Wed Nov 18 15:55:16 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 167
+Landscape of replicates 0_1_2_3_5
+New run started at
+Wed Nov 18 15:55:24 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 177
+Landscape of replicates 0_1_2_4_5
+New run started at
+Wed Nov 18 15:55:31 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 164
+Landscape of replicates 0_1_3_4_5
+New run started at
+Wed Nov 18 15:55:39 2026 CEST
+Random seed this run: 3034128489
+
+Found 1 plateaus:
+Escapable: True, Size: 2
+
+
+Number of peaks: 168
+Landscape of replicates 0_2_3_4_5
+New run started at
+Wed Nov 18 15:55:46 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 172
+Landscape of replicates 1_2_3_4_5
+New run started at
+Wed Nov 18 15:55:54 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 178
+Landscape of replicates 0_1_2_3_4_5
+New run started at
+Wed Nov 18 15:56:02 2026 CEST
+Random seed this run: 3034128489
+
+Found 0 plateaus:
+
+
+Number of peaks: 167
+Fit 1:
+(array([3.22065763e+02, 2.41719910e-03, 1.17232907e+02]), array([[ 1.34095444e+03,  7.59644811e-03, -1.97049150e+02],
+       [ 7.59644811e-03,  4.92618979e-08, -1.05046111e-03],
+       [-1.97049150e+02, -1.05046111e-03,  3.03509963e+01]]), {'nfev': 18, 'fvec': array([ 0.15496295, -0.45343361, -0.98062008,  1.56520671,  1.96811973,
+       -2.25423576])})
+Sum of squared residuals = 12.596177489279047
+Predicted peaks at 0 noise: 117.23290707264292
+Fit 2:
+(array([3.22065773e+02, 2.41719917e-03, 1.17232906e+02]), array([[ 1.34095236e+03,  7.59641393e-03, -1.97048910e+02],
+       [ 7.59641393e-03,  4.92615420e-08, -1.05045669e-03],
+       [-1.97048910e+02, -1.05045669e-03,  3.03509697e+01]]), {'fvec': array([ 0.15496263, -0.45343326, -0.98061982,  1.5652068 ,  1.96811967,
+       -2.25423596]), 'nfev': 29, 'fjac': array([[ 3.66616945e+04,  3.66485432e-01,  1.98170244e-01,
+         1.23906460e-01,  8.47318736e-02,  6.15757791e-02],
+       [-1.72934903e+00, -1.73474838e+00,  4.11874708e-01,
+         4.73549801e-01,  5.06083769e-01,  5.25314600e-01],
+       [-4.61808910e-01, -2.54916048e-01, -5.59566986e-02,
+        -1.96871024e-01, -5.30086641e-01, -8.00734254e-01]]), 'ipvt': array([1, 2, 0], dtype=int32), 'qtf': array([ 1.37907829e-07, -1.70500509e-07, -8.73166710e-07])})
+Sum of squared residuals = 12.596177489279045
+Predicted peaks at 0 noise: 117.23290572542116

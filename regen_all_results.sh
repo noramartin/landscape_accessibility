@@ -9,9 +9,9 @@
 # `fola_replicate_fitnesses/` can be left in place to only regenerate the plots
 # and logs from the existing data.
 # Recommended versions of dependencies: 
-#   Python 3.14
-#   SciPy 1.17
-#   NetworkX 3.6 (only required for rmf_plots.py)
+#   Python 3.13
+#   SciPy 1.18
+#   NetworkX 3.5
 
 # Written by Kye Hunter
 # Last updated 20261118
@@ -29,6 +29,7 @@ fi
 rm -rf ./paper_figures_and_data
 mkdir paper_figures_and_data
 cd paper_figures_and_data
+mkdir plots
 ln -s ../code/*.py .
 ln -s ../external_data_sets/*/*.csv .
 ln -s ../external_data_sets/*/*.tsv .

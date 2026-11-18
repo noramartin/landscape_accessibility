@@ -2140,7 +2140,7 @@ def make_graph(
             )
             input_data = read_csv(file_name)[1:]
             genotype_graph = Graph([
-                GraphNode(row[0], row[5] + row[7] + row[9], float(row[1])) 
+                GraphNode(row[0], '', float(row[1])) 
                 for row in input_data
             ])
         case (

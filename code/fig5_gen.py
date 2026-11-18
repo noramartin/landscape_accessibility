@@ -5,9 +5,9 @@
 # Generates Figure 5 for the paper
 
 # Written by Kye Hunter
-# Last updated 20260416
+# Last updated 20261104
 
-import math, os, json
+import math, os, json, random
 import matplotlib.pyplot, matplotlib.font_manager
 import rugged_maps
 
@@ -30,20 +30,34 @@ num_walks = 1000000
 
 alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-row_titles = {                                                                   
-    'sRMF_15_0.01.not_real' : 'sRMF',                         
-    'papkou_2023_folA.csv' : '$folA$ (full)',                                    
-    'papkou_2023_folA_cutoff.not_real' : '$folA$ (functional)',                  
-    'wu_2016_1.csv' : 'GB1',                                                     
-    'kuo_2020_SD_FL_arti.csv' : 'SD-arti',                                       
-    'poelwijk_2019_FP.tsv' : 'FP',                                                       
-    'domingo_2018.tsv' : 'tRNA',                                                 
-    'moulana_2022_RBD_ACE2.tsv' : 'RBD-ACE2',                                    
-    'house_of_cards.not_real' : 'HoC'                            
+row_titles = {
+    'sRMF_15_0.01.not_real' : 'sRMF',
+    'papkou_2023_folA.csv' : 'folA',
+    'papkou_2023_folA_cutoff.not_real' : 'folA sublandscape 1',
+    'papkou_2023_folA_high_fitness.not_real' : 'folA sublandscape 2',
+    'wu_2016_1.csv' : 'GB1',
+    'kuo_2020_SD_FL_arti.csv' : 'SD-arti',
+    'poelwijk_2019_FP.tsv' : 'FP',
+    'domingo_2018.tsv' : 'tRNA',
+    'moulana_2022_RBD_ACE2.tsv' : 'RBD-ACE2',
+    'house_of_cards.not_real' : 'HoC',
+    'house_of_cards_L8_A4.not_real' : 'HoC'
 }
 
 def str_to_tuple(string, dtype : type = int):
     return tuple(dtype(val) for val in string.strip('()[]{} \n\t').split(', '))
+
+def count_nodes_to_cross_fitness(graph, fitnesses : list):
+    num_crossings = [[fitness, 0] for fitness in fitnesses]
+    for node in graph:
+        fitness1 = node.fitness
+        for icrossing in range(len(num_crossings)):
+            for ineighbor in node.neighbors:
+                fitness2 = graph[ineighbor].fitness
+                if fitness2 < num_crossings[icrossing][0] <= fitness1:
+                    num_crossings[icrossing][1] += 1
+                    break
+    return num_crossings
 
 def plot_row(row, axes, **keyword_args):
     input_file = keyword_args.pop('input_file')
@@ -69,6 +83,8 @@ def plot_row(row, axes, **keyword_args):
     axis2 = axes[key2]
     key3 = f'{alphabet[row]}3'
     axis3 = axes[key3]
+    key4 = f'{alphabet[row]}4'
+    axis4 = axes[key4]
 
     if input_base == 'sRMF_15_0.01':
         global L, p
@@ -81,19 +97,7 @@ def plot_row(row, axes, **keyword_args):
                 / math.comb(j, d) for j in range(d, L)
             ) if d > 1 else 1 for d in d_to_plot]
         prob_reached = [s * p for s, p in zip(basin_sizes, prob_from_basin)]
-        axis1.plot(
-            peak_heights_at_d, basin_sizes, color = 'blue', zorder = 0, 
-            linewidth = 0.75
-        )
-        axis2.plot(
-            peak_heights_at_d, prob_from_basin, color = 'blue', zorder = 0, 
-            linewidth = 0.75
-        )
-        axis3.plot(
-            peak_heights_at_d, prob_reached, 'blue', zorder = 0, 
-            linewidth = 0.75
-        )
-        point_size = 3
+        point_size = 0.5
     else:
         point_size = 0.5
 
@@ -167,7 +171,6 @@ def plot_row(row, axes, **keyword_args):
     axis2.set_ylabel("P(reach $s$\n|start in $s$'s basin)")
     axis2.set_yscale('log')
     axis2.tick_params(which = 'minor', left = True)
-    axis2.set_title(row_titles[input_file])
     axis2.text(
         0.00, 1.005, key2, transform = axis2.transAxes, 
         ha = 'left', va = 'bottom', color = 'black',
@@ -192,12 +195,92 @@ def plot_row(row, axes, **keyword_args):
         weight = 'bold', size = 'large'
     )    
 
+    # Column 4: 
+    fitness_min = min(node.fitness for node in graph)
+    fitness_max = max(node.fitness for node in graph)
+    num_crossings = count_nodes_to_cross_fitness(graph, [
+        fitness_min + i * (fitness_max - fitness_min) / 100 for i in range(101)
+    ])
+    num_crossings = [[
+        val[0], 
+        1 / val[1] if val[1] != 0 else float('nan'),
+    ] for val in num_crossings]
+    num_crossings = [[*val, 0, 0] for val in num_crossings]
+
+    for node in graph:
+        node.walkers_passing_through_node = 0
+    for walk in walk_data[1]['walk']:
+        # For graphs with neutral mutations, remove nodes visited more than once
+        for inode in set(step[0] for step in walk[1]):
+            graph[inode].walkers_passing_through_node += 1
+        for crossing in num_crossings:
+            # Count how many walks start higher in fitness than this crossing
+            if walk[1][0][1] > crossing[0]:
+                crossing[2] += 1
+            # And count how many end lower than this crossing
+            if walk[1][-1][1] < crossing[0]:
+                crossing[3] += 1
+    prob_seen_in_walk_non_peak = [
+        (node.fitness, node.walkers_passing_through_node / num_walks)
+        for node in graph if not node.is_peak
+    ]
+    prob_seen_in_walk_peak = [(
+        graph[inode].fitness, 
+        graph[inode].walkers_passing_through_node / num_walks
+    ) for inode in graph.peaks]
+
+    num_crossings = [[
+        val[0], val[1],
+        # The corrected value which multiplies by the fraction of walks that 
+        # cross this fitness
+        val[1] * (num_walks - val[2] - val[3]) / num_walks
+    ] for val in num_crossings]
+    num_crossings = list(zip(*num_crossings))
+
+    x_range = axis3.get_xlim()
+    prob_seen_in_walk_non_peak_in_range = [
+        val for val in prob_seen_in_walk_non_peak 
+        if x_range[0] < val[0] < x_range[1]
+    ]
+    axis4.set_yscale('log')
+    axis4.scatter(
+        *list(zip(*random.sample(prob_seen_in_walk_non_peak_in_range, k=2000))), 
+        color = 'grey', s = point_size, #alpha = 0.3,
+        label = 'Non-peak genotypes\n(2000 random samples)'
+    )
+    axis4.scatter(
+        *list(zip(*prob_seen_in_walk_peak)), 
+        color = 'red', s = point_size, #alpha = 0.3,
+        label = 'Peaks'
+    )
+    # Don't let these lines mess with the ylims
+    original_ylim = axis4.get_ylim()
+    axis4.plot(
+        num_crossings[0], num_crossings[1], color = 'black', linewidth = 0.75,
+        label = 'Estimate of walker\ndilution'
+    )
+    axis4.plot(
+        num_crossings[0], num_crossings[2], color = 'darkviolet', linewidth = 0.75,
+        label = 'Estimate of walker\ndilution for walks \npassing a given fitness'
+    )
+    axis4.set_ylim(original_ylim)
+
+    axis4.set_xlabel('Fitness')
+    axis4.set_xlim(axis3.get_xlim())
+    axis4.set_ylabel('P(pass $g$)')
+    axis4.tick_params(which = 'minor', left = True)
+    axis4.text(
+        0.00, 1.005, key4, transform = axis4.transAxes, 
+        ha = 'left', va = 'bottom', color = 'black',
+        weight = 'bold', size = 'large'
+    )    
+
 def main():
     args_array = [
         {
-            'input_file' : 'sRMF_15_0.01.not_real', 
-            'graph_type' : f'hamming,{L},2', 
-            'fitness_distribution' : f'noras_rmf,1,0,1.5,{1-p},{p}'
+            'input_file' : 'house_of_cards_L8_A4.not_real', 
+            'graph_type' : f'hamming,8,4', 
+            'fitness_distribution' : 'random'
         },
         {'input_file' : 'papkou_2023_folA.csv'},
         {
@@ -205,11 +288,16 @@ def main():
             'graph_type' : 'point_mutations,papkou_2023_folA.csv', 
             'fitness_cutoff' : -0.508, 'cutoff_type' : 'low_fitness_neighbors'
         },
-        {'input_file' : 'wu_2016_1.csv'},                                        
-        {'input_file' : 'kuo_2020_SD_FL_arti.csv'},                              
+        {
+            'input_file' : 'papkou_2023_folA_high_fitness.not_real', 
+            'graph_type' : 'point_mutations,papkou_2023_folA.csv', 
+            'fitness_cutoff' : -0.508, 'cutoff_type' : 'low_fitness'
+        },
+        {'input_file' : 'wu_2016_1.csv'},
+        {'input_file' : 'kuo_2020_SD_FL_arti.csv'},
         {'input_file' : 'poelwijk_2019_FP.tsv'}, 
-        {'input_file' : 'domingo_2018.tsv'},                                     
-        {'input_file' : 'moulana_2022_RBD_ACE2.tsv'},                            
+        {'input_file' : 'domingo_2018.tsv'},
+        {'input_file' : 'moulana_2022_RBD_ACE2.tsv'},
     ]
     args_array = [
         val | {'evolution_type' : f'walkers,{num_walks}'} for val in args_array
@@ -217,16 +305,45 @@ def main():
     
     fig, fig_axes = matplotlib.pyplot.subplot_mosaic(                
         [                                                                        
-            [f'{alphabet[irow]}1', f'{alphabet[irow]}2', f'{alphabet[irow]}3'] 
-            for irow in range(len(args_array))
-        ], figsize = (fig_width * phi * 3, fig_width * len(args_array)), 
-        layout = 'tight'
+            [
+                f'{alphabet[irow]}1', f'{alphabet[irow]}2', 
+                f'{alphabet[irow]}3', f'{alphabet[irow]}4',
+                f'{alphabet[irow]}l'
+            ] for irow in range(len(args_array))
+        ], figsize = (fig_width * phi * 5, fig_width * len(args_array)), 
+        layout = 'tight'#, sharey = 'row'
     ) 
+    num_rows = len(args_array)
     
     for iarg, arg in enumerate(args_array):
         plot_row(iarg, fig_axes, **arg)
+        fig_axes[f'{alphabet[iarg]}l'].set_axis_off()
+        fig.text(
+            0, 1 - 0.5 / num_rows - iarg / (num_rows) + iarg / num_rows * 0.03,
+            row_titles[arg['input_file']],
+            ha = 'left', va = 'center', color = 'black',
+            rotation = 'vertical', weight = 'bold'
+        )
+    fig_axes['Al'].legend(
+        *fig_axes['A4'].get_legend_handles_labels(), loc = 'center',
+        markerscale = 3
+    )
+    fig.tight_layout(pad = 2, h_pad = 0.1, w_pad = 0.1)
 
+    # Now the widest ylims of all the plots, but not the legends
+    all_ylims = list(zip(*[
+        fig_axes[f'{alphabet[iarg]}{col}'].get_ylim() 
+        for iarg, arg in enumerate(args_array)
+        for col in range(1,5)
+    ]))
+    all_ylims_new = (min(all_ylims[0]), max(all_ylims[1]))
+    for iarg, arg in enumerate(args_array):
+        fig_axes[f'{alphabet[iarg]}1'].set_ylim(all_ylims_new)
+        fig_axes[f'{alphabet[iarg]}2'].set_ylim(all_ylims_new)
+        fig_axes[f'{alphabet[iarg]}3'].set_ylim(all_ylims_new)
+        fig_axes[f'{alphabet[iarg]}4'].set_ylim(all_ylims_new)
     fig.savefig(f'fig5.pdf')
+
     #matplotlib.pyplot.show()
     matplotlib.pyplot.close()
 

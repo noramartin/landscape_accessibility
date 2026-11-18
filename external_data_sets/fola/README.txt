@@ -11,3 +11,7 @@ while `papkou_2023_folA.csv` is the same data in CSV format.
 
 The sequences (first column) are 9 nucleotides from the folA gene in E. coli, which code for amino acids 26–28 of the "dihydrofolate reductase" enzyme. The fitness values (second column) are the logarithm of fitness of each varient grown in media with "trimethoprim" (an antibiotic), normalized to the fitness of the wildtype (first row). Fitness values were averaged across 6 replicate experiments.
 
+The data in `sequence_reads_counts.RDS` is provided as-is from the same Zenodo repository.
+
+The data is two arrays labeled as "before" and "M9+TMP", corresponding to the sequencing read counts before and after growth in trimethoprim, respectively. The arrays have 6 columns, one for each replicate, and rows labeled with the corresponding sequence, with the variable region of the sequence at positions 52–60.
+

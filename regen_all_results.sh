@@ -34,7 +34,21 @@ ln -s ../code/*.py .
 ln -s ../external_data_sets/*/*.csv .
 ln -s ../external_data_sets/*/*.tsv .
 
-./rmf_plots.py
+# Figures 2, 3, 4, S8  
+python3 sRMF_plots_new.py
+# Figures S1, S2 
+python3 varyK_RMF.py
+# Figures S3, S4 
+python3 varyL_RMF.py
+# Figures S5, S6, S7
+python3 varyp_RMF.py
+# Figures S9, S10, S11 
+python3 further_walks_plots.py
+# Figures S12, S13, S14, S15
+python3 RMF_general_plots.py
+# Figures 1A, 1C, S16, S17
+python3 null_models_and_overview_fig.py
+
 ./fig5_gen.py
 ./figS18_gen.py
 
